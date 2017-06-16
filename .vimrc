@@ -9,26 +9,17 @@ set title
 
 syntax enable
 
+set termguicolors
+colorscheme lucario
+
 set visualbell
 set noerrorbells
 set nobackup
 set nowritebackup
 set noswapfile
 set laststatus=2
-set cmdwinheight=20
 
 set colorcolumn=80
-
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
-
-colorscheme base16-ocean
-
-let g:lightline = {
-	\'colorscheme': '16color',
-	\}
 
 set winwidth=84
 set nowrap
@@ -89,6 +80,5 @@ nmap <leader>b :call Rsync()<cr>
 
 set cindent
 
-au BufNewFile,BufRead *.rs set filetype=rust
 filetype plugin indent on
 

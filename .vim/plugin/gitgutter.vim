@@ -196,18 +196,22 @@ augroup gitgutter
   endif
 
   if g:gitgutter_eager
-    autocmd BufEnter,BufWritePost,FileChangedShellPost *
+    autocmd BufWritePost,FileChangedShellPost,ShellCmdPost * call gitgutter#process_buffer(bufnr(''), 0)
+
+    autocmd BufEnter *
           \  if gettabvar(tabpagenr(), 'gitgutter_didtabenter') |
           \   call settabvar(tabpagenr(), 'gitgutter_didtabenter', 0) |
+          \   call gitgutter#all() |
           \ else |
           \   call gitgutter#process_buffer(bufnr(''), 0) |
           \ endif
-    autocmd TabEnter *
-          \  call settabvar(tabpagenr(), 'gitgutter_didtabenter', 1) |
-          \ call gitgutter#all()
+
+    autocmd TabEnter * call settabvar(tabpagenr(), 'gitgutter_didtabenter', 1)
+
     if !has('gui_win32')
       autocmd FocusGained * call gitgutter#all()
     endif
+
   else
     autocmd BufRead,BufWritePost,FileChangedShellPost * call gitgutter#process_buffer(bufnr(''), 0)
   endif

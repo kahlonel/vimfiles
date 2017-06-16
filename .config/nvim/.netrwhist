@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/kahlonel/Documents/Projects/Sjur/clevair-dev-manager/src'
-let g:netrw_dirhist_2='/Users/kahlonel/Documents/Projects/Sjur/clevair-dev-manager'
-let g:netrw_dirhist_3='/Users/kahlonel/Documents/Projects/rhasta/lib'
-let g:netrw_dirhist_4='/Users/kahlonel/Documents/Projects/rhasta/lib/common'
-let g:netrw_dirhist_5='/Users/kahlonel/Documents/Projects/Sjur/clevair-device-api'
