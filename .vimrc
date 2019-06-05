@@ -7,10 +7,15 @@ set cursorline
 
 set title
 
+set path+=**
+set wildmenu
+
 syntax enable
 
 set termguicolors
-colorscheme lucario
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+colorscheme base16-ocean
+"colorscheme base16-github
 
 set visualbell
 set noerrorbells
@@ -58,25 +63,6 @@ nmap <S-l> $
 
 nmap <silent> <S-e> :vertical resize +10<cr>
 nmap <silent> <S-s> :vertical resize -10<cr>
-
-let g:server="userver"
-let g:folder=getcwd()
-
-function Rsync()
-	if exists("g:server")
-		if exists("g:folder")
-			let cmd="rsync -avz " . g:folder . " " . g:server . ":~/"
-			execute "!" . cmd
-			echo "Transfer done!"
-		else
-			echo "No folder defined"
-		endif
-	else
-		echo "No server defined"
-	endif
-endfunction
-
-nmap <leader>b :call Rsync()<cr>
 
 set cindent
 
